@@ -1,1 +1,3 @@
 # diolab4
+
+1. Criar o Bucket de OrigemO recurso AWS::S3::Bucket cria o bucket onde os dados originais e não modificados ficarão armazenados.2. Criar o Access Point de SuporteO S3 Object Lambda não se conecta diretamente ao bucket. Ele exige um Access Point convencional (AWS::S3::AccessPoint) atuando como intermediário (Supporting Access Point).3. Configurar o Object Lambda Access PointO recurso AWS::S3ObjectLambda::AccessPoint é onde a mágica acontece. Na propriedade TransformationConfigurations, definimos:Actions: A operação que disparará o gatilho (geralmente GetObject).AwsLambda: O ARN da função Lambda que interceptará o dado e aplicará a transformação (ex: mascarar dados, converter formatos, etc.).
